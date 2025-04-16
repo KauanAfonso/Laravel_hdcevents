@@ -1,3 +1,5 @@
+<script src="/js/script.js"></script>
+<link rel="stylesheet" href="/css/style.css">
 <body>
 
     <h2>Seja bem vindo</h2>
@@ -43,4 +45,4 @@
     echo $frase;
 
     @endphp
-</body>
+</bod>

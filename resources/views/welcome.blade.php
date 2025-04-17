@@ -1,6 +1,8 @@
-<script src="/js/script.js"></script>
-<link rel="stylesheet" href="/css/style.css">
-<body>
+@extends('layouts.main'){{--extendendo o layout de main--}}
+
+@section('title', 'KC Events')
+
+@section('content')
 
     <h2>Seja bem vindo</h2>
     {{-- Renderizando se a condição for verdadeira --}}
@@ -45,4 +47,5 @@
     echo $frase;
 
     @endphp
-</bod>
+
+@endsection {{--Fechando a section--}}

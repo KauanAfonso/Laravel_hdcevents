@@ -31,7 +31,7 @@
         <a href="/" class="ms-1 text-sm font-medium text-white hover:text-blue-600 md:ms-2 dark:text-gray-400 dark:hover:text-white">Eventos</a>
 
         <!-- Link para produtos -->
-        <a href="/" class="ms-1 text-sm font-medium text-white hover:text-blue-600 md:ms-2 dark:text-gray-400 dark:hover:text-white">Produtos</a>
+        <a href="/produtos" class="ms-1 text-sm font-medium text-white hover:text-blue-600 md:ms-2 dark:text-gray-400 dark:hover:text-white">Produtos</a>
 
         <!-- Link para filtro de produtos -->
         <a href="/" class="ms-1 text-sm font-medium text-white hover:text-blue-600 md:ms-2 dark:text-gray-400 dark:hover:text-white">Filtro Produtos</a>

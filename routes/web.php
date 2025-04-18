@@ -4,9 +4,14 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\ProdutosController;
 
-//Rota para index utilizando o controller e metodo utilizada para ela
+//Rota para renderizar o index do evento
 Route::get('/', [EventController::class, 'index']);
+
+//rota para renderizar o form de criar eventos, -> chama o controler dele
 Route::get('/events/create', [EventController::class, 'create']);
+
+//rota para envar os dados do form criar evento -> chama o controler dele
+Route::post('/events', [EventController::class, 'store']);
 
 
 //Rota para contato

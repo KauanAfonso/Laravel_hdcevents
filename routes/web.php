@@ -1,18 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Event;
 
-//Rota para index
-Route::get('/', function () {
-    $nome = "Kauan";
-    $idade = 18;
-
-    $arr = [10,8,1,6,5,];
-    $profissoes = ['Programador', "Desenvolvedor", "Medico"];
-
-    return view('welcome',["nome" => $nome, "idade"=> $idade, "arr"=>$arr, "profissoes"=> $profissoes]); //Enviando para ser renderizado
-});
-
+//Rota para index utilizando o controller
+Route::get('/', [Event::class, 'index']);
+Route::get('/events/create', [Event::class, 'create']);
 
 
 //Rota para contato

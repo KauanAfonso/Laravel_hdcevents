@@ -9,10 +9,8 @@
 
 
 {{-- verificando se o queryParamter n está vazio --}}
-@if ($busca !== ' ')
-
-<p>O usuario está buscando por {{ $busca }}</p> {{-- -Aparecer o que o usuário pesquisou --}}
-
+@if ($busca !== null)
+    <p>O usuario está buscando por {{ $busca }}</p> {{-- -Aparecer o que o usuário pesquisou --}}
 @endif
 
 

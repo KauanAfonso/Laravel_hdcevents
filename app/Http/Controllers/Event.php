@@ -17,7 +17,7 @@ class Event extends Controller
 
         return view('welcome',["nome" => $nome, "idade"=> $idade, "arr"=>$arr, "profissoes"=> $profissoes]); //Enviando para ser renderizado
     }
-
+    //metodo para visualizar o /create
     public function create(){
         return view('events.create');
     }

@@ -2,8 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Event;
+use App\Http\Controllers\ProdutosController;
 
-//Rota para index utilizando o controller
+//Rota para index utilizando o controller e metodo utilizada para ela
 Route::get('/', [Event::class, 'index']);
 Route::get('/events/create', [Event::class, 'create']);
 
@@ -15,12 +16,7 @@ Route::get('/contact', function () {
 
 
 //Rota para produtos -> passano queryString
-Route::get('/produtos', function () {
-
-    //Pegando a busca o usuario na url
-    $busca = request('search');
-    return view('products' , ['busca' => $busca]);
-});
+Route::get('/produtos', [ProdutosController::class, 'index']);
 
 
 //path parameters e query paramters

@@ -13,11 +13,31 @@ Route::get('/events/create', [EventController::class, 'create']);
 //rota para envar os dados do form criar evento -> chama o controler dele
 Route::post('/events', [EventController::class, 'store']);
 
+Route::get('/events/{id}', [EventController::class, 'single_event']);
 
 //Rota para contato
 Route::get('/contact', function () {
     return view('contact'); //semelhante ao render
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 //Rota para produtos -> passano queryString

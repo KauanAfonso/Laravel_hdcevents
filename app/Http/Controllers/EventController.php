@@ -23,7 +23,7 @@ class EventController extends Controller
 
         $event = new Event(); //instanciando um nova objetp
 
-        //criando os objetos 
+        //criando os objetos
         $event->title = $request->title;
         $event->description = $request->description;
         $event->private = $request->private;
@@ -32,5 +32,11 @@ class EventController extends Controller
         $event->save();//salvando no bacno
 
         return redirect('/'); //redirecionando
+    }
+
+    public function single_event(int $id){
+        $event = Event::find($id);
+        return view('events.event', ['event' => $event]);
+    
     }
 }

@@ -1,12 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Event;
+use App\Http\Controllers\EventController;
 use App\Http\Controllers\ProdutosController;
 
 //Rota para index utilizando o controller e metodo utilizada para ela
-Route::get('/', [Event::class, 'index']);
-Route::get('/events/create', [Event::class, 'create']);
+Route::get('/', [EventController::class, 'index']);
+Route::get('/events/create', [EventController::class, 'create']);
 
 
 //Rota para contato

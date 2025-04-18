@@ -11,8 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('products', function (Blueprint $table) {
-            $table->string('category', 100); //aicionando a categoria
+        Schema::create('Events', function (Blueprint $table) {
+            $table->id();
+            $table->timestamps();
+            $table->String("title");
+            $table->text("description");
+            $table->string("city");
+            $table->boolean("Private");
         });
     }
 
@@ -21,9 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('products', function (Blueprint $table) {
-            $table->dropColumn('category'); //aicionando a categoria
-
-        });
+        Schema::dropIfExists('events');
     }
 };

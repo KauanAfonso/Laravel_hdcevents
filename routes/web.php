@@ -21,7 +21,17 @@ Route::get('/contact', function () {
 });
 
 
-//Rota para produtos
+//Rota para produtos -> passano queryString
 Route::get('/produtos', function () {
-    return view('products');
+
+    //Pegando a busca o usuario na url
+    $busca = request('search');
+    return view('products' , ['busca' => $busca]);
+});
+
+
+//path parameters e query paramters
+//o {id} com ? indica que ele passou a ser opcional
+Route::get('produtos_teste/{id?}', function(Int $id = null){
+    return view('product', ['id' => $id]);
 });

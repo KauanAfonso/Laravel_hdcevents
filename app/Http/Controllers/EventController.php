@@ -29,6 +29,19 @@ class EventController extends Controller
         $event->private = $request->private;
         $event->city = $request->city;
 
+
+        if($request->hasFile('image') && $request->file('image')->isValid()){
+
+            $requesImage = $request->image;
+            $extension = $requesImage->extension();
+
+            $imageName = md5($requesImage->getClientOriginalName() . strtotime("now") . "." . $extension);
+
+            $requesImage->move(public_path('img/events'), $imageName);
+
+            $event->image = $imageName;
+        }
+
         $event->save();//salvando no bacno
 
         return redirect('/')->with('msg', "Evento criado com sucesso"); //redirecionando

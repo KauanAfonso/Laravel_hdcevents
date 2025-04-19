@@ -51,7 +51,7 @@
 
                 {{-- Imagem do evento --}}
                 <a href="#">
-                    <img class="rounded-t-lg" src="https://catalogo.webmotors.com.br/imagens/prod/fotos-temas/CardDesktop/cdb35e13-66a2-4653-8414-f41f408e34da_CardDesktop.webp?s=fill&w=274&h=216&q=70" alt="Imagem do evento" />
+                    <img class="rounded-t-lg" src="/img/events/{{ $event->image }}" alt="Imagem do evento" />
                 </a>
 
                 {{-- Conteúdo do card --}}
@@ -75,7 +75,7 @@
                     </p>
 
                     {{-- Botão de inscrição --}}
-                    <a href="#"
+                    <a href="/events/{{ $event->id }}"
                        class="inline-flex items-center px-3 py-2 text-sm font-medium text-white
                               bg-red-500 rounded-lg hover:bg-red-800 focus:ring-4 focus:outline-none
                               focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700

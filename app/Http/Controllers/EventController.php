@@ -31,12 +31,12 @@ class EventController extends Controller
 
         $event->save();//salvando no bacno
 
-        return redirect('/'); //redirecionando
+        return redirect('/')->with('msg', "Evento criado com sucesso"); //redirecionando
     }
 
     public function single_event(int $id){
         $event = Event::find($id);
         return view('events.event', ['event' => $event]);
-    
+
     }
 }

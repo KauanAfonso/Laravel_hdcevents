@@ -79,7 +79,16 @@
 </header>
 
 <!-- Onde o conteúdo específico da página será injetado -->
-@yield('content')
+<main>
+
+<div >
+    @if (session('msg'))
+        <p class="msg w-[500px] mx-auto bg-green-700 text-white p-4 text-center">{{ session('msg') }}</p> {{--Se tiver mensagem aparecerá aqui--}}
+    @endif
+    @yield('content'){{-- Local onde será injetado o conteudo das outras views --}}
+</div>
+
+</main>
 
 <!-- Rodapé -->
 <footer class="bg-red-800 rounded-lg shadow-sm dark:bg-gray-900 mb-6">

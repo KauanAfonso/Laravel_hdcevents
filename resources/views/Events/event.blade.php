@@ -1,8 +1,11 @@
+
 @extends('layouts.main')
 
 @section('title', "Visualizar Evento")
 
 @section('content')
+
+
 <div class="max-w-5xl mx-auto mt-10 p-6 bg-white rounded-lg shadow dark:bg-gray-800 dark:text-white">
     <div class="flex flex-col md:flex-row gap-8 items-start">
 

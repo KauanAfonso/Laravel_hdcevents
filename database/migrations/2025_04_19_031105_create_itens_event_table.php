@@ -11,14 +11,19 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('itens_event', function (Blueprint $table) {
+        //crie somente se a tabela não existir no banco
+        if(!Schema::hasTable('itens_events')){
+
+
+        Schema::create('itens_events', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
 
             //Aicionando as FK
-            $table->foreignId("item_id")->constrained()->onDelete('cascade');
-            $table->foreignId("event_id")->constrained()->onDelete('cascade');
+            $table->foreignId("item_id")->constrained('itens')->onDelete('cascade');
+            $table->foreignId("event_id")->constrained('events')->onDelete('cascade');
         });
+    }
     }
 
     /**
@@ -26,6 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('itens_event');
+        Schema::dropIfExists('itens_events');
     }
 };

@@ -83,7 +83,7 @@
 
 <div >
     @if (session('msg'))
-        <p class="msg w-[500px] mx-auto bg-green-700 text-white p-4 text-center">{{ session('msg') }}</p> {{--Se tiver mensagem aparecerá aqui--}}
+        <p class="msg w-[500px] mx-auto bg-green-500 text-white p-4 text-center">{{ session('msg') }}</p> {{--Se tiver mensagem aparecerá aqui--}}
     @endif
     @yield('content'){{-- Local onde será injetado o conteudo das outras views --}}
 </div>

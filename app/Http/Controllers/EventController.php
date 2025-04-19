@@ -32,12 +32,12 @@ class EventController extends Controller
 
         if($request->hasFile('image') && $request->file('image')->isValid()){
 
-            $requesImage = $request->image;
-            $extension = $requesImage->extension();
+            $requesImage = $request->image; //pega a imagem do input
+            $extension = $requesImage->extension(); // pega a extenção do arquivo
 
-            $imageName = md5($requesImage->getClientOriginalName() . strtotime("now") . "." . $extension);
+            $imageName = md5($requesImage->getClientOriginalName() . strtotime("now")) . "." . $extension; //criptografa
 
-            $requesImage->move(public_path('img/events'), $imageName);
+            $requesImage->move(public_path('img/events'), $imageName); //Move a imagem para a pasta public/img/events do seu projeto, usando o nome gerado.
 
             $event->image = $imageName;
         }

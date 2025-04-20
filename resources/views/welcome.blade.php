@@ -14,8 +14,8 @@
                 name="search"
                 class="flex-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg
                        focus:ring-blue-500 focus:border-blue-500 p-2.5
-                       dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white
-                       dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      
+                      "
                 placeholder="Palestra de TI"
             >
 
@@ -25,11 +25,11 @@
                 class="inline-flex p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900
                        rounded-lg group bg-gradient-to-br from-pink-500 to-orange-400
                        group-hover:from-pink-500 group-hover:to-orange-400 hover:text-white
-                       dark:text-white focus:ring-4 focus:outline-none focus:ring-pink-200
-                       dark:focus:ring-pink-800"
+                       focus:ring-4 focus:outline-none focus:ring-pink-200
+                      "
             >
                 <span class="relative px-5 py-2.5 transition-all ease-in duration-75
-                             bg-white dark:bg-gray-900 rounded-md
+                             bg-white rounded-md
                              group-hover:bg-transparent group-hover:dark:bg-transparent">
                     Pesquisar
                 </span>
@@ -39,7 +39,7 @@
 
     {{-- Título e subtítulo da seção de eventos --}}
     <div class="w-full max-w-3xl mx-auto px-6">
-    <h3 class="text-3xl font-bold dark:text-white text-left mt-10">Eventos disponíveis</h3>
+    <h3 class="text-3xl font-bold text-left mt-10">Eventos disponíveis</h3>
         @if ($search)
             <h1>Buscando por {{ $search }}</h1>
         @endif
@@ -49,33 +49,33 @@
     <div class="grid grid-cols-2 md:grid-cols-3 gap-2 p-6">
         @foreach ($events as $event)
             {{-- Card de evento --}}
-            <div class="max-w-sm h-50 w-110 p-6 rounded-lg bg-white border border-gray-200 shadow-sm dark:bg-gray-800 dark:border-gray-700">
+            <div class="max-w-sm h-50 w-110 p-6 rounded-lg bg-white border border-gray-200 shadow-sm">
 
                 {{-- Imagem do evento --}}
                 <a href="#">
                 <figure class="max-w-lg">
                     <img class="h-auto max-w-full rounded-lg " src="/img/events/{{ $event->image }}" alt="image description">
-                    <figcaption class="mt-2 text-sm text-center text-gray-500 dark:text-gray-400">Image caption</figcaption>
+                    <figcaption class="mt-2 text-sm text-center text-gray-500">Image caption</figcaption>
                 </figure>
                 </a>
 
                 {{-- Conteúdo do card --}}
                 <div class="p-5">
                     <a href="#">
-                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">
                             {{ $event->title }}
                         </h5>
                     </a>
 
-                    <h6 class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                    <h6 class="mb-3 font-normal text-gray-700">
                         {{ $event->description }}.
                     </h6>
 
-                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                    <p class="mb-3 font-normal text-gray-700">
                         Data do evento: {{ date('d/m/y', strtotime($event->date)) }}
                     </p>
 
-                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                    <p class="mb-3 font-normal text-gray-700">
                         Participantes.
                     </p>
 
@@ -83,8 +83,8 @@
                     <a href="/events/{{ $event->id }}"
                        class="inline-flex items-center px-3 py-2 text-sm font-medium text-white
                               bg-red-500 rounded-lg hover:bg-red-800 focus:ring-4 focus:outline-none
-                              focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700
-                              dark:focus:ring-blue-800"
+                              focus:ring-blue-300
+                             "
                     >
                         Se inscrever
                         <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true"

@@ -1,5 +1,6 @@
 <?php
 
+use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\ProdutosController;
@@ -8,7 +9,7 @@ use App\Http\Controllers\ProdutosController;
 Route::get('/', [EventController::class, 'index']);
 
 //rota para renderizar o form de criar eventos, -> chama o controler dele
-Route::get('/events/create', [EventController::class, 'create']);
+Route::get('/events/create', [EventController::class, 'create'])->Middleware('auth');//Só useers logados podem ter acesso
 
 //rota para envar os dados do form criar evento -> chama o controler dele
 Route::post('/events', [EventController::class, 'store']);

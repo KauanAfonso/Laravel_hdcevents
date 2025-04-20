@@ -60,6 +60,10 @@ class EventController extends Controller
             return back()->withErrors(['image' => 'Erro ao fazer upload da imagem.']);
         }
 
+        //relacionando evento com usuario que criou
+        $user = auth()->user();
+        $event->user_id = $user->id;
+
         $event->save();//salvando no bacno
 
         if($request->has('itens')){//verifica se o form enviou o campo itens

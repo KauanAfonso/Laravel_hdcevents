@@ -30,19 +30,18 @@
         <!-- Link para eventos -->
         <a href="/" class="ms-1 text-sm font-medium text-white hover:text-blue-600 md:ms-2">Eventos</a>
 
+        {{-- Aparecerá se o user estuver logado --}}
         @auth
 
             <a href="/dashboard" class="ms-1 text-sm font-medium text-white hover:text-blue-600 md:ms-2">Meus Eventos</a>
 
             <form action="/logout" method="POST">
             @csrf
-
                 <a href="/logout"
                 class="ms-1 text-sm font-medium text-white hover:text-blue-600 md:ms-2"
                 onclick="event.preventDefault(); this.closest('form').submit();">
                     Sair
                 </a>
-                
             </form>
 
 
@@ -56,7 +55,7 @@
 
         <!-- Link para filtro de produtos -->
         <a href="/register" class="ms-1 text-sm font-medium text-white hover:text-blue-600 md:ms-2">Cadastrar</a>
-        @endguest  
+        @endguest
     </div>
     </li>
 

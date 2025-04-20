@@ -6,11 +6,11 @@
 @section('content')
 
 
-<div class="max-w-5xl mx-auto mt-10 p-6 bg-white rounded-lg shadow dark:bg-gray-800 dark:text-white">
+<div class="max-w-4xl mx-auto mt-10 p-8 bg-white rounded-lg shadow dark:bg-gray-200 dark:text-white">
     <div class="flex flex-col md:flex-row gap-8 items-start">
 
         <!-- Imagem à esquerda -->
-        <div class="w-full md:w-1/2">
+        <div class="w-full md:w-1/2 p-6">
             <img src="/img/events/{{ $event->image }}" alt="Imagem do evento {{ $event->title }}" class="w-full h-72 object-cover rounded-md shadow-md">
         </div>
 
@@ -21,6 +21,14 @@
             <div class="space-y-3 text-gray-700 dark:text-gray-300">
                 <p><span class="font-semibold">Local:</span> {{ $event->city }}</p>
                 <p><span class="font-semibold">Descrição:</span> {{ $event->description }}</p>
+                <h3>Itens disponíveis:</h3>
+                <ul>
+                    @foreach ($event->itens as $itens )
+
+                    <li>{{ $itens->name }}</li>
+
+                    @endforeach
+                </ul>
             </div>
 
             <!-- Botão de Confirmar Presença -->

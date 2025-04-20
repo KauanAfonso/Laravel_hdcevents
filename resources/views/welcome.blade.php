@@ -47,11 +47,14 @@
     <div class="grid grid-cols-2 md:grid-cols-3 gap-2 p-6">
         @foreach ($events as $event)
             {{-- Card de evento --}}
-            <div class="max-w-sm h-auto w-full rounded-lg bg-white border border-gray-200 shadow-sm dark:bg-gray-800 dark:border-gray-700">
+            <div class="max-w-sm h-50 w-110 p-6 rounded-lg bg-white border border-gray-200 shadow-sm dark:bg-gray-800 dark:border-gray-700">
 
                 {{-- Imagem do evento --}}
                 <a href="#">
-                    <img class="rounded-t-lg" src="/img/events/{{ $event->image }}" alt="Imagem do evento" />
+                <figure class="max-w-lg">
+                    <img class="h-auto max-w-full rounded-lg " src="/img/events/{{ $event->image }}" alt="image description">
+                    <figcaption class="mt-2 text-sm text-center text-gray-500 dark:text-gray-400">Image caption</figcaption>
+                </figure>
                 </a>
 
                 {{-- Conteúdo do card --}}

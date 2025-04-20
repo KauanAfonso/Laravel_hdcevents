@@ -6,7 +6,7 @@
 
     {{-- Container da barra de pesquisa --}}
     <div id="search-container" class="flex justify-center">
-        <form class="max-w-xl w-full flex items-center gap-2 mt-4">
+        <form action='/' method="GET" class="max-w-xl w-full flex items-center gap-2 mt-4">
             {{-- Campo de pesquisa --}}
             <input
                 type="text"
@@ -39,8 +39,10 @@
 
     {{-- Título e subtítulo da seção de eventos --}}
     <div class="w-full max-w-3xl mx-auto px-6">
-        <h3 class="text-3xl font-bold dark:text-white text-left mt-10">Eventos disponíveis</h3>
-        <p class="mb-6 text-gray-500 dark:text-gray-400 text-left">Veja os próximos eventos.</p>
+    <h3 class="text-3xl font-bold dark:text-white text-left mt-10">Eventos disponíveis</h3>
+        @if ($search)
+            <h1>Buscando por {{ $search }}</h1>
+        @endif
     </div>
 
     {{-- Grade de cards dos eventos --}}
@@ -95,7 +97,9 @@
             </div>
         @endforeach
         {{-- msg caso não tenho eventos --}}
-        @if(count($events) == 0)
+        @if(count($events) == 0 && $search   )
+            <p>Não encnntrado esse evento : {{ $search }}. veja todos os eventos disponiveis <a href="/">aqui</a></p>
+        @elseif(count($events) == 0)
             <p>Não há eventos disponívies</p>
         @endif
     </div>

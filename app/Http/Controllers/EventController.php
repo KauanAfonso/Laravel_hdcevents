@@ -13,9 +13,21 @@ class EventController extends Controller
     public function Index(){
 
         //obtendo todos os eventos por nossa model
-        $events = Event::all();
 
-        return view('welcome', ['events'=>$events]); //Enviando para ser renderizado
+        $search = request('search');
+
+        if($search){
+            #procuradno no banco no campo title que seja parecido e contenha o search
+            $events = Event::where([
+                ['title', 'like', '%'.$search.'%']
+            ])->get();
+
+        }else{
+            $events = Event::all();
+        }
+
+
+        return view('welcome', ['events'=>$events, 'search'=> $search]); //Enviando para ser renderizado
     }
     //metodo para visualizar o /create
     public function create(){

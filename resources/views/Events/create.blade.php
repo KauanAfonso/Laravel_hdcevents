@@ -33,6 +33,14 @@
                             class="mt-2 w-full rounded-lg border border-gray-300 p-3 text-sm dark:bg-gray-700 dark:text-white dark:border-gray-600 focus:ring-blue-500 focus:border-blue-500"></textarea>
                     </div>
 
+
+                    {{-- data --}}
+                    <div>
+                        <label for="date" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Data do evento: </label>
+                        <input type="date" id="date" name="date" required
+                            class="mt-2 w-full rounded-lg border border-gray-300 p-3 text-sm dark:bg-gray-700 dark:text-white dark:border-gray-600 focus:ring-blue-500 focus:border-blue-500">
+                    </div>
+
                     {{-- Cidade --}}
                     <div>
                         <label for="city" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Cidade</label>

@@ -70,7 +70,7 @@
                     </h6>
 
                     <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
-                        Data: 20/09/2022.
+                        Data do evento: {{ date('d/m/y', strtotime($event->date)) }}
                     </p>
 
                     <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
@@ -94,6 +94,10 @@
                 </div>
             </div>
         @endforeach
+        {{-- msg caso não tenho eventos --}}
+        @if(count($events) == 0)
+            <p>Não há eventos disponívies</p>
+        @endif
     </div>
 
 @endsection {{-- Fim da seção de conteúdo --}}

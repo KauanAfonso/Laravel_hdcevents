@@ -14,7 +14,7 @@
                 name="search"
                 class="flex-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg
                        focus:ring-blue-500 focus:border-blue-500 p-2.5
-                      
+
                       "
                 placeholder="Palestra de TI"
             >
@@ -76,7 +76,7 @@
                     </p>
 
                     <p class="mb-3 font-normal text-gray-700">
-                        Participantes.
+                        Participantes: {{ count($event->users) }}
                     </p>
 
                     {{-- Botão de inscrição --}}

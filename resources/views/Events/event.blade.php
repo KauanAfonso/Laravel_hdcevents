@@ -22,6 +22,7 @@
                 <p><span class="font-semibold">Dono do Evento:</span> {{ $eventOwner->name }}</p>
                 <p><span class="font-semibold">Local:</span> {{ $event->city }}</p>
                 <p><span class="font-semibold">Descrição:</span> {{ $event->description }}</p>
+                <p><span class="font-semibold">Participantes:</span> {{ count($event->users) }}</p> {{-- contando o numero de participantes --}}
                 <h3>Itens disponíveis:</h3>
                 <ul>
                     @foreach ($event->itens as $itens )
@@ -33,7 +34,7 @@
             </div>
 
             <!-- Botão de Confirmar Presença -->
-            <form action="/event/join/{{ $event->id }}" method="POST" class="mt-6">
+            <form action="/events/join/{{ $event->id }}" method="POST" class="mt-6">
                 @csrf
                 <button type="submit" id="event-submit"
                     class="text-white bg-green-600 hover:bg-green-700 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center transition">

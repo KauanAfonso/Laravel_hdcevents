@@ -19,5 +19,10 @@ class Event extends Model
         return $this->belongsTo('App\Models\User'); //pertence a um useuario
     }
 
+
+    public function Users(){
+        return $this->belongsToMany(User::class, 'event_user'); //relacionamento n:n
+    }
+
     protected $dates = ['date']; //adicionando o campo data
 }

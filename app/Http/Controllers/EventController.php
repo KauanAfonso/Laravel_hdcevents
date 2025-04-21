@@ -92,16 +92,50 @@ class EventController extends Controller
 
     public function destroy(int $id){
 
-        Event::findOrFail($id)->delete();
-        return redirect('/dashboard')->with('msg', "Evento excluido com sucesso !");
+        Event::findOrFail($id)->delete(); //excluindo o evento
+        return redirect('/dashboard')->with('msg', "Evento excluido com sucesso !"); //retornando a mensagem
     }
 
 
-    public function edit(int $id){
 
-        Event::findOrFail($id);
-        return view('events.edit')->with('event'=>$event);
+    public function edit(int $id){//função de renderizar sobre o form de edit eventos
+
+
+        $event = Event::findOrFail($id);
+        return view('events.edit', ['event' => $event])->with("msg" , "Criado com sucesso");
 
 
     }
+
+
+    public function update(Request $request)
+    {
+        // Busca o evento pelo ID
+        $event = Event::findOrFail($request->id);
+
+        // Verifica se uma nova imagem foi enviada
+        if ($request->hasFile('image') && $request->file('image')->isValid()) {
+            $uploadedImage = $request->file('image');
+            $extension = $uploadedImage->extension(); //obetendo a extensão
+
+            // Gera um nome único para a imagem
+            $imageName = md5($uploadedImage->getClientOriginalName() . strtotime("now")) . "." . $extension;
+
+            // Move a imagem para a pasta public/img/events
+            $uploadedImage->move(public_path('img/events'), $imageName);
+
+            // Atribui o novo nome ao evento
+            $event->image = $imageName;
+        }
+
+        // Atualiza os campos do evento (exceto 'itens' e 'image' para evitar sobrescrita)
+        $event->fill($request->except(['itens', 'image']));
+        $event->save(); // Salva o evento com ou sem imagem
+
+        // Atualiza os itens do relacionamento
+        $event->itens()->sync($request->itens ?? []);
+
+        return redirect('/dashboard')->with('msg', "Evento atualizado com sucesso!");
+    }
+
 }

@@ -52,6 +52,13 @@
                                         Deletar
                                     </button>
                                 </form>
+
+                                                                {{-- simulando o methodo delete  --}}
+                                <a href="/events/edit/{{ $event->id }}" >
+                                    <button type="submit" class="font-medium text-green-600 hover:underline">
+                                        Atualizar
+                                    </button>
+                                </a>
                             </td>
                         </tr>
                     @endforeach

@@ -14,8 +14,13 @@
                 {{-- Coluna esquerda: dados principais --}}
                 <div class="space-y-6">
                     {{-- Imagem --}}
+
+                    <div class="w-full md:w-1/2 p-6">
+                        <img src="/img/events/{{ $event->image }}" alt="Imagem do evento {{ $event->title }}" class="w-full h-72 object-cover rounded-md shadow-md">
+                    </div>
+                    
                     <div>
-                        <label for="image" class="block text-sm font-medium text-gray-700">Imagem do evento</label>
+                        <label for="image" class="block text-sm font-medium text-gray-700" value="{{ $event->title }}">Imagem do evento</label>
                         <input type="file" id="image" name="image" required
                             class="mt-2 block w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer focus:outline-none">
                     </div>
@@ -23,29 +28,36 @@
                     {{-- Título --}}
                     <div>
                         <label for="title" class="block text-sm font-medium text-gray-700">Título</label>
-                        <input type="text" id="title" name="title" required
+                        <input type="text" id="title" name="title" required value="{{ $event->title }}"
                             class="mt-2 w-full rounded-lg border border-gray-300 p-3 text-sm focus:ring-blue-500 focus:border-blue-500">
                     </div>
 
                     {{-- Descrição --}}
                     <div>
                         <label for="description" class="block text-sm font-medium text-gray-700">Descrição</label>
-                        <textarea id="description" name="description" rows="4" required
+                        <textarea id="description" name="description" rows="4" required value="{{ $event->description }}"
                             class="mt-2 w-full rounded-lg border border-gray-300 p-3 text-sm focus:ring-blue-500 focus:border-blue-500"></textarea>
                     </div>
 
 
                     {{-- data --}}
                     <div>
-                        <label for="date" class="block text-sm font-medium text-gray-700">Data do evento: </label>
-                        <input type="date" id="date" name="date" required
-                            class="mt-2 w-full rounded-lg border border-gray-300 p-3 text-sm focus:ring-blue-500 focus:border-blue-500">
+                        <label for="date" class="block text-sm font-medium text-gray-700">Data do evento:</label>
+                        <input
+                            type="date"
+                            id="date"
+                            name="date"
+                            required
+                            value="{{ $event->date ? \Carbon\Carbon::parse($event->date)->format('Y-m-d') : '' }}"
+                            class="mt-2 w-full rounded-lg border border-gray-300 p-3 text-sm focus:ring-blue-500 focus:border-blue-500"
+                        >
                     </div>
+
 
                     {{-- Cidade --}}
                     <div>
                         <label for="city" class="block text-sm font-medium text-gray-700">Cidade</label>
-                        <input type="text" id="city" name="city" required
+                        <input type="text" id="city" name="city" required value="{{ $event->city }}
                             class="mt-2 w-full rounded-lg border border-gray-300 p-3 text-sm focus:ring-blue-500 focus:border-blue-500">
                     </div>
 
@@ -54,8 +66,7 @@
                         <label for="private" class="block text-sm font-medium text-gray-700">Evento privado?</label>
                         <select id="private" name="private" required
                             class="mt-2 w-full rounded-lg border border-gray-300 p-3 text-sm focus:ring-blue-500 focus:border-blue-500">
-                            <option value="" disabled selected>Selecione uma opção</option>
-                            <option value="1">Sim</option>
+                            <option value="1 {{ $event->private  == 1 ? "selected='selected'" : "" }}">Sim</option>
                             <option value="0">Não</option>
                         </select>
                     </div>
@@ -66,13 +77,18 @@
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-3">Itens disponíveis:</label>
                         <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
-                            @foreach ($itens as $item)
-                                <label class="flex items-center space-x-2 text-sm text-gray-900">
-                                    <input type="checkbox" name="itens[]" value="{{ $item->id }}"
-                                        class="rounded border-gray-300 text-blue-600 shadow-sm focus:ring-blue-500">
-                                    <span>{{ $item->name }}</span>
-                                </label>
-                            @endforeach
+                            @if (!empty($itens))
+                                @foreach ($event->itens as $item)
+                                    <label class="flex items-center space-x-2 text-sm text-gray-900">
+                                        <input type="checkbox" name="itens[]" value="{{ $item->id }}"
+                                            class="rounded border-gray-300 text-blue-600 shadow-sm focus:ring-blue-500">
+                                        <span>{{ $item->name }}</span>
+                                    </label>
+                                @endforeach
+                            @else
+                                <p>Nenhum item presente</p>
+                            @endif
+
                         </div>
                     </div>
 

@@ -94,6 +94,13 @@ class EventController extends Controller
 
         Event::findOrFail($id)->delete();
         return redirect('/dashboard')->with('msg', "Evento excluido com sucesso !");
+    }
+
+
+    public function edit(int $id){
+
+        Event::findOrFail($id);
+        return view('events.edit')->with('event'=>$event);
 
 
     }

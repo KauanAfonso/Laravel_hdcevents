@@ -23,6 +23,8 @@ Route::get('/contact', function () {
 
 Route::get('/dashboard', [EventController::class, 'dashboard'])->middleware('auth');
 Route::delete('/events/{id}', [EventController::class,'destroy']);
+Rout::get('/events/{id}', [EventController::class, 'edit'])->middleware('auth');
+
 
 Route::middleware([
     'auth:sanctum',

@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('title', 'Produtos')
+@section('title', 'eventos')
 
 @section('content')
 
@@ -43,6 +43,8 @@
 
                             <!-- Ação de deletar evento com proteção CSRF -->
                             <td class="px-6 py-4">
+
+                                {{-- simulando o methodo delete  --}}
                                 <form action="/events/{{ $event->id }}" method="POST" onsubmit="return confirm('Tem certeza que deseja deletar este evento?')">
                                     @csrf
                                     @method('DELETE')

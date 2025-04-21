@@ -22,34 +22,7 @@ Route::get('/contact', function () {
 });
 
 Route::get('/dashboard', [EventController::class, 'dashboard'])->middleware('auth');
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//Rota para produtos -> passano queryString
-Route::get('/produtos', [ProdutosController::class, 'index']);
-
-
-//path parameters e query paramters
-//o {id} com ? indica que ele passou a ser opcional
-Route::get('produtos_teste/{id?}', function(Int $id = null){
-    return view('product', ['id' => $id]);
-});
+Route::delete('/events/{id}', [EventController::class,'destroy']);
 
 Route::middleware([
     'auth:sanctum',

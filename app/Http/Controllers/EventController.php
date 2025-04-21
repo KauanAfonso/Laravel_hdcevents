@@ -86,7 +86,9 @@ class EventController extends Controller
         $user = auth()->user();
         $events = $user->events; //funçao que relaciona eventos com user na model
 
-        return view('events.dashboard', ['events' => $events]);
+        $eventAsParticipant = $user->eventsAsParticipant;
+
+        return view('events.dashboard', ['events' => $events, 'eventsasparticipant' => $eventAsParticipant]); //retornando os eventos do usuairo como participante
 
     }
 
@@ -100,8 +102,14 @@ class EventController extends Controller
 
     public function edit(int $id){//função de renderizar sobre o form de edit eventos
 
-
+        $user = auth()->user();
         $event = Event::findOrFail($id);
+
+        //somente o dono do evento pode editar o evento
+        if($user->id !== $event->user_id){
+            return redirect('/dashboard');
+        }
+
         return view('events.edit', ['event' => $event])->with("msg" , "Criado com sucesso");
 
 

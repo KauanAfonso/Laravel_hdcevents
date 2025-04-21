@@ -149,12 +149,29 @@ class EventController extends Controller
     public function joinEvent($id)
     {
         $user = auth()->user();
+        $event = Event::findOrFail($id);
+
+        //verifica se o usuario ja se cadastrou no evento
+        if($user->eventsAsParticipant()->where('event_id', $id)->exists()){
+            return redirect('/dashboard')->with('errorMsg', "Voçê ja está presente nesse evento !");
+        }
 
         $user->eventsAsParticipant()->attach($id);
 
-        $event = Event::findOrFail($id);
+
         return redirect('/dashboard')->with('msg', "Sua presença está confirmada no evento" . $event->title);
 
+
+    }
+
+    public function leaveEvent($id){
+        $user = auth()->user();
+
+        $user->eventsAsParticipant()->detach($id); //remove o relacionanmento
+
+        $event = Event::findOrFail($id);
+
+        return redirect('/dashboard')->with('msg', "Você saiu com sucesso do evento: " . $event->title);
 
     }
 

@@ -28,17 +28,17 @@
     <li>
       <div class="flex items-center">
         <!-- Link para eventos -->
-        <a href="/" class="ms-1 text-sm font-medium text-white hover:text-blue-600 md:ms-2">Eventos</a>
+        <a href="/" class="ms-1 text-sm font-medium text-white hover:text-gray-200 md:ms-2">Eventos</a>
 
         {{-- Aparecerá se o user estuver logado --}}
         @auth
 
-            <a href="/dashboard" class="ms-1 text-sm font-medium text-white hover:text-blue-600 md:ms-2">Meus Eventos</a>
+            <a href="/dashboard" class="ms-1 text-sm font-medium text-white hover:text-gray-200 md:ms-2">Meus Eventos</a>
 
             <form action="/logout" method="POST">
             @csrf
                 <a href="/logout"
-                class="ms-1 text-sm font-medium text-white hover:text-blue-600 md:ms-2"
+                class="ms-1 text-sm font-medium text-white hover:text-gray-200 md:ms-2"
                 onclick="event.preventDefault(); this.closest('form').submit();">
                     Sair
                 </a>
@@ -51,10 +51,10 @@
         {{-- Só aparecere para usuario não logado --}}
         @guest
         <!-- Link para produtos -->
-        <a href="/login" class="ms-1 text-sm font-medium text-white hover:text-blue-600 md:ms-2">Entrar</a>
+        <a href="/login" class="ms-1 text-sm font-medium text-white hover:text-gray-200 md:ms-2">Entrar</a>
 
         <!-- Link para filtro de produtos -->
-        <a href="/register" class="ms-1 text-sm font-medium text-white hover:text-blue-600 md:ms-2">Cadastrar</a>
+        <a href="/register" class="ms-1 text-sm font-medium text-white hover:text-gray-200 md:ms-2">Cadastrar</a>
         @endguest
     </div>
     </li>
@@ -68,7 +68,7 @@
         </svg>
 
         <!-- Link para criação de evento -->
-        <a href="/events/create" class="ms-1 text-sm font-medium text-white hover:text-blue-600 md:ms-2">Criar</a>
+        <a href="/events/create" class="ms-1 text-sm font-medium text-white hover:text-gray-200 md:ms-2">Criar</a>
       </div>
     </li>
   </ol>

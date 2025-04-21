@@ -5,7 +5,7 @@
 @section('content')
 
 <!-- Container principal com espaçamento e largura máxima -->
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-10 space-y-12">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-10 space-y-12 ">
 
     <!-- Seção: Eventos criados pelo usuário -->
     <section>
@@ -46,7 +46,7 @@
                                     <form action="/events/{{ $event->id }}" method="POST" onsubmit="return confirm('Tem certeza que deseja deletar este evento?')" class="inline">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="text-red-600 hover:underline">Deletar</button>
+                                        <button type="submit" class="text-red-400 hover:underline">Deletar</button>
                                     </form>
 
                                     <!-- Link para atualizar o evento -->
@@ -59,7 +59,7 @@
             </div>
         @else
             <!-- Mensagem se o usuário ainda não criou eventos -->
-            <p class="text-gray-600 mt-4">
+            <p class="text-gray-600 mt-8">
                 Você ainda não criou nenhum evento.
                 <a href="/events/create" class="text-indigo-800 hover:underline font-medium">Criar Evento</a>
             </p>
@@ -87,7 +87,7 @@
                             <form action="events/leave/{{ $event->id }}" method="post">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">Sair do evento</button>
+                                <button type="submit" class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-400 dark:hover:bg-red-700 dark:focus:ring-red-900">Sair do evento</button>
                             </form>
                         </div>
                     </div>

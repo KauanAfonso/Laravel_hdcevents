@@ -21,7 +21,7 @@ Route::get('/contact', function () {
     return view('contact'); //semelhante ao render
 });
 
-
+Route::get('/dashboard', [EventController::class, 'dashboard'])->middleware('auth');
 
 
 

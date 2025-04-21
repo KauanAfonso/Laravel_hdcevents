@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Iten;
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\Event;
-
 
 class EventController extends Controller
 {
@@ -74,8 +74,10 @@ class EventController extends Controller
     }
 
     public function single_event(int $id){
-        $event = Event::find($id);
-        return view('events.event', ['event' => $event]);
+        $event = Event::findOrFail($id);
+
+        $eventOner = User::where('id', $event->user_id)->first(); //obtendo o usuario dono, o primeiro
+        return view('events.event', ['event' => $event, "eventOwner" => $eventOner]);
 
     }
 }

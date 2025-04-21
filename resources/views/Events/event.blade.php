@@ -19,6 +19,7 @@
             <h1 class="text-3xl font-bold mb-4">{{ $event->title }}</h1>
 
             <div class="space-y-3 text-gray-700">
+                <p><span class="font-semibold">Dono do Evento:</span> {{ $eventOwner->name }}</p>
                 <p><span class="font-semibold">Local:</span> {{ $event->city }}</p>
                 <p><span class="font-semibold">Descrição:</span> {{ $event->description }}</p>
                 <h3>Itens disponíveis:</h3>

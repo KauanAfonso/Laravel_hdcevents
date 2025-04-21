@@ -7,7 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class Event extends Model
 {
     public function itens(){
-        return $this->belongsToMany(Iten::class, 'itens_events');
+        return $this->belongsToMany(Iten::class, 'itens_events', 'event_id', 'item_id');
+        //passei os Ids pois se não ele passa automaticamente 
     }
 
     public function User(){

@@ -110,7 +110,7 @@ class EventController extends Controller
             return redirect('/dashboard');
         }
 
-        return view('events.edit', ['event' => $event])->with("msg" , "Criado com sucesso");
+        return view('events.edit', ['event' => $event])->with("msg" , "Atualizado com sucesso");
 
 
     }

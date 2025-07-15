@@ -5,7 +5,7 @@
 @section('content')
 <div class="min-h-screen bg-gray-100 py-10 px-4 sm:px-6 lg:px-8 p-6">
     <div class="max-w-5xl mx-auto bg-white shadow-md rounded-2xl p-8">
-        <h1 class="text-3xl font-extrabold text-center text-gray-800 mb-10">Criar novo evento</h1>
+        <h1 class="text-3xl font-extrabold text-center text-gray-800 mb-10">Editar evento</h1>
         <h1>Editando: {{ $event->title }}</h1>
         <form action="/events/update/{{ $event->id }}" method="POST" enctype="multipart/form-data">
             @csrf
@@ -18,7 +18,7 @@
                     <div class="w-full md:w-1/2 p-6">
                         <img src="/img/events/{{ $event->image }}" alt="Imagem do evento {{ $event->title }}" class="w-full h-72 object-cover rounded-md shadow-md">
                     </div>
-                    
+
                     <div>
                         <label for="image" class="block text-sm font-medium text-gray-700" value="{{ $event->title }}">Imagem do evento</label>
                         <input type="file" id="image" name="image" required

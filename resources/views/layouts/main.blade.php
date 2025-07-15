@@ -17,11 +17,12 @@
     <!-- Importação do CSS customizado do projeto -->
     <link rel="stylesheet" href="/css/style.css">
 </head>
+
 <body>
 
 <header>
 <!-- Navegação principal com estilo de "breadcrumb" -->
-<nav class="justify-between px-4 py-3 text-white border border-gray-200 rounded-lg sm:flex sm:px-5 bg-red-800" aria-label="Breadcrumb">
+<nav class="justify-between px-4 py-5 text-white border border-gray-200 rounded-lg sm:flex sm:px-5 bg-red-800" aria-label="Breadcrumb">
 
   <!-- Links de navegação -->
   <ol class="inline-flex items-center mb-3 space-x-1 md:space-x-2 rtl:space-x-reverse sm:mb-0">
@@ -73,29 +74,6 @@
     </li>
   </ol>
 
-  <!-- Botão de dropdown lateral (menu flutuante) -->
-  <div>
-    <button id="dropdownDefault" data-dropdown-toggle="dropdown" class="inline-flex items-center px-3 py-2 text-sm font-normal text-center text-gray-600 bg-gray-200 rounded-lg hover:bg-gray-300 focus:ring-4 focus:outline-none focus:ring-gray-100">
-      <!-- Ícone -->
-      <svg class="w-3 h-3 me-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 20">
-        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5v10M3 5a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm0 10a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm9-10v.4A3.6 3.6 0 0 1 8.4 9H6.61A3.6 3.6 0 0 0 3 12.605M14.458 3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z"/>
-      </svg>
-      Fix #6597
-      <!-- Ícone seta -->
-      <svg class="w-2.5 h-2.5 ms-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
-      </svg>
-    </button>
-
-    <!-- Conteúdo do dropdown -->
-    <div id="dropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-44">
-      <ul class="py-2 text-sm text-white" aria-labelledby="dropdownDefault">
-        <li><a href="#" class="block px-4 py-2 hover:bg-gray-100">New branch</a></li>
-        <li><a href="#" class="block px-4 py-2 hover:bg-gray-100">Rename</a></li>
-        <li><a href="#" class="block px-4 py-2 hover:bg-gray-100">Delete</a></li>
-      </ul>
-    </div>
-  </div>
 </nav>
 </header>
 
@@ -121,8 +99,7 @@
     <!-- Logo + Links -->
     <div class="sm:flex sm:items-center sm:justify-between">
       <a href="https://flowbite.com/" class="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse">
-        <img src="https://images.seeklogo.com/logo-png/12/2/s-c-corinthians-paulista-logo-png_seeklogo-121083.png" class="h-8" alt="Flowbite Logo" />
-        <span class="self-center text-2xl font-semibold whitespace-nowrap">Flowbite</span>
+        <span class="self-center text-2xl text-white font-semibold whitespace-nowrap">Kc Events</span>
       </a>
 
       <!-- Links de navegação no rodapé -->

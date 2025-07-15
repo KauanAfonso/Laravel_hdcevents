@@ -9,13 +9,13 @@
 
     <!-- Seção: Eventos criados pelo usuário -->
     <section>
-        <h2 class="text-3xl font-bold text-gray-800 mb-6">Meus Eventos Criados</h2>
+        <h2 class="text-3xl font-bold text-red-800 mb-6">Meus Eventos Criados</h2>
 
         @if(count($events) > 0)
             <!-- Tabela estilizada com Tailwind, responsiva e bonita -->
             <div class="relative overflow-x-auto shadow-lg rounded-xl">
                 <table class="w-full text-sm text-left text-gray-700">
-                    <thead class="text-xs text-white uppercase bg-red-400">
+                    <thead class="text-xs text-white uppercase bg-red-800">
                         <tr>
                             <th class="px-6 py-3">#</th>
                             <th class="px-6 py-3">Nome</th>
@@ -68,7 +68,7 @@
 
     <!-- Seção: Eventos que o usuário está participando -->
     <section>
-        <h2 class="text-3xl font-bold text-gray-800 mb-6">Eventos que Estou Participando</h2>
+        <h2 class="text-3xl mt-10 font-bold text-red-800 mb-6">Eventos que Estou Participando</h2>
 
         @if(count($eventsasparticipant) > 0)
             <!-- Grade de cartões com os eventos que o usuário participa -->
